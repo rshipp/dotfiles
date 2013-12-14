@@ -29,8 +29,6 @@ set t_Sf=\e[3%dm
 set t_Sb=\e[4%dm
 endif
 
-colorscheme xemacs
-
 syntax on
 
 autocmd FileType crontab :set backupcopy=yes
