@@ -22,7 +22,7 @@ export HISTCONTROL=ignoreboth
 
 
 # aliases
-. ~/.bash_aliases
+[[ -r ~/.bash_aliases ]] && . ~/.bash_aliases
 
 
 
@@ -83,7 +83,7 @@ WHITE='\e[1;37m'  rWHITE='[1;37m'
 BLACK='\e[1;39m'  rBLACK='[1;39m'
 ENDCOLOR='\e[0m'  rENDCOLOR='[0m'
 
-msg() { # make aur2ccr's normal output prettier and more unified.
+msg() {
   debug "msg('$@')"
   if [ "$1" == "-n" ]; then
     local eopts="$1"
@@ -91,7 +91,8 @@ msg() { # make aur2ccr's normal output prettier and more unified.
   fi
   echo -e $eopts "${BLUE}==>${ENDCOLOR}" "$@"
 }
-warn() { # make aur2ccr's warning messages prettier and more unified.
+
+warn() {
   debug "warn('$@')"
   if [ "$1" == "-n" ]; then
     local eopts="$1"
@@ -99,7 +100,8 @@ warn() { # make aur2ccr's warning messages prettier and more unified.
   fi
   echo -e $eopts "${YELLOW}==>${ENDCOLOR}" "$@"
 }
-err() { # make aur2ccr's error messages prettier and more unified.
+
+err() {
   debug "err('$@')"
   if [ "$1" == "-n" ]; then
     local eopts="$1"
@@ -107,6 +109,7 @@ err() { # make aur2ccr's error messages prettier and more unified.
   fi
   echo -e $eopts "${RED}==> ERROR:${ENDCOLOR}" "$@" >&2
 }
+
 color() {
   if [ -z "$1" ]; then
     echo -e "Usage: color [${BLACK}black${ENDCOLOR}|${GREEN}green${ENDCOLOR}|${PINK}pink${ENDCOLOR}|${CYAN}cyan${ENDCOLOR}|${BLUE}blue${ENDCOLOR}|${YELLOW}yellow${ENDCOLOR}|${RED}red${ENDCOLOR}|${WHITE}white${ENDCOLOR}|none]"
@@ -137,8 +140,8 @@ nothing() {
   echo -n 
 }
 
-. ~/.welcome # auto-changing ascii art, etc
+#. ~/.welcome # auto-changing ascii art, etc
 
-export PATH=$PATH:/usr/bin/vendor_perl/:/data/george/dev/git/misc-bash/:/data/george/dev/git/misc-chakra/:/data/george/dev/sh/:/data/george/localbin/
+export PATH=$PATH:/usr/bin/vendor_perl/ #:/data/george/dev/git/misc-bash/:/data/george/dev/git/misc-chakra/:/data/george/dev/sh/:/data/george/localbin/
 
-source /data/george/localbin/.bashrc
+#source /data/george/localbin/.bashrc
