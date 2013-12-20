@@ -37,3 +37,5 @@ autocmd FileType crontab :set nobackup
 set ts=4 et sw=4 sts=4
 set background=dark
 set number
+set relativenumber
+set nolist
