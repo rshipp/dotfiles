@@ -14,7 +14,7 @@ shopt -s expand_aliases
 shopt -s extglob
 shopt -s histappend
 shopt -s hostcomplete
-shopt -s nocaseglob
+shopt -u nocaseglob
 
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
@@ -145,3 +145,4 @@ nothing() {
 export PATH=$PATH:/usr/bin/vendor_perl/ #:/data/george/dev/git/misc-bash/:/data/george/dev/git/misc-chakra/:/data/george/dev/sh/:/data/george/localbin/
 
 #source /data/george/localbin/.bashrc
+export LC_ALL=C
