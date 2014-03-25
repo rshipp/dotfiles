@@ -39,3 +39,5 @@ set background=dark
 set number
 set relativenumber
 set nolist
+
+cmap w!! w !sudo tee % >/dev/null
