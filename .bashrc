@@ -146,3 +146,44 @@ export PATH=$PATH:/usr/bin/vendor_perl/ #:/data/george/dev/git/misc-bash/:/data/
 
 #source /data/george/localbin/.bashrc
 export LC_ALL=C
+
+# Short aliases
+alias l=ls
+alias v=vim
+alias z='7z -tzip a'
+alias py=python
+alias rb=irb
+alias hs=ghci
+alias sd='dolphin . >/dev/null 2>/dev/null &'
+alias o=kde-open
+
+# Git and virtualenvwrapper
+paren_if_n() {
+    [[ -n $1 ]] && echo "($1)"
+}
+vim_child() {
+    ps ax | grep $PPID | grep -q vim && echo ':' || echo '$'
+}
+
+source ~/.git-prompt.sh
+# PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+export _PS1='$(paren_if_n $(basename "$VIRTUAL_ENV"))[\u@\h \W]'
+export PROMPT_COMMAND="__git_ps1 '$_PS1' '$(vim_child) '"
+alias c='git checkout'
+alias s='git status'
+alias p='git push'
+alias m='git commit -S -m'
+alias am='git commit -S -am'
+alias u='git up'
+alias a='git add -p'
+alias d='git diff'
+alias log='git log'
+alias stash='git stash'
+alias tag='git tag -s'
+alias nose='nosetests --color'
+
+# Virtualenv
+[[ -e /usr/bin/virtualenvwrapper.sh ]] && . /usr/bin/virtualenvwrapper.sh
+[[ -e /usr/share/virtualenvwrapper/virtualenvwrapper.sh ]] && . /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+alias gi='gem install --no-ri --no-rdoc'
